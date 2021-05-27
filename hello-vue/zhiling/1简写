@@ -1,0 +1,7 @@
+v-bind:class 可以简写为 :class
+
+v-on:click='add' 可以写成 @click='add'
+
+
+
+

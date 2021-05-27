@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令v-for：遍历对象</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(value, key, index) in user" :key="index">
+            {{index}} - {{key}} : {{value}}
+        </li>
+    </ul>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            user:{name:'柳岩', gender:'女', age: 21}
+        }
+    });
+</script>
+</body>
+</html>

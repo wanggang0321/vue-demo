@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化：全局组件</title>
+</head>
+<body>
+<div id="app">
+    <!-- 使用定义好的全局组件 -->
+    <counter></counter>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component("counter", {
+        template: '<button v-on:click="count++">你点了我 {{ count }} 次，我记住了.</button>',
+        data() {
+            return {
+                count: 0
+            }
+        }
+    })
+    var app = new Vue({
+        el: "#app"
+    });
+</script>
+</body>
+</html>

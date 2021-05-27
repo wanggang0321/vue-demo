@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令:v-bind</title>
+    <style>
+        .active {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            font-size: 20px;
+            color: red;
+        }
+        .hasError {
+            font-size: 30px;
+            background: green;
+        }
+        .text-danger {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:class="{hasError: isActive}">
+            1234567
+        </div>
+        <br/>
+        <div class="static" v-bind:class="{active: isAct, 'text-danger': isDanger}">
+            !@#$%^&*()
+        </div>
+        <br/>
+        v-bind:class 可以简写为 :class
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                isActive: ['active', 'hasError'],
+                isAct: true,
+                isDanger: true
+            }
+        });
+    </script>
+</body>
+</html>

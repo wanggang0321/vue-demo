@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令v-for</title>
+</head>
+<body>
+<div id="app">
+    v-text:<span v-text="hello"></span><br>
+    v-html:<span v-html="hello"></span>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            hello: "<h1>vue学习</h1>"
+        }
+    });
+</script>
+</body>
+</html>

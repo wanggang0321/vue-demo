@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令:v-on</title>
+</head>
+<body>
+<div id="app">
+    <!-- 事件中直接写js片段 -->
+    <button v-on:click="num++">增加</button>
+<!-- 指定一个Vue实例中定义的函数 -->
+    <button v-on:click="decrement">减少</button>
+    <h1>num: {{num}}</h1>
+    <hr/>
+    事件绑定可以简写: v-on:click='add' 可以写成 @click='add'<br/>
+    <button @click="num++">增加(简写@click)</button><br/>
+    <button @click="decrement">减少(简写@click)</button>
+    <hr/>
+    <h3>事件修饰符</h3>
+    为了解决这个问题，Vue.js 为 `v-on` 提供了**事件修饰符**。之前提过，修饰符是由点开头的指令后缀来表示的。
+    - `.stop` ：阻止事件冒泡
+    - `.prevent`：阻止默认事件发生
+    - `.capture`：使用事件捕获模式
+    - `.self`：只有元素自身触发事件才执行。（冒泡或捕获的都不执行）
+    - `.once`：只执行一次
+    <hr/>
+    <h3>按键修饰符</h3>
+    <input v-on:keyup.13="add" value="回车键才生效">v-on:keyup.13<br/>
+    也可以使用按键的别名:<br/>
+    <input v-on:keyup.enter="add" value="v-on:keyup.enter">回车键别名:v-on:keyup.enter<br/>
+    缩写:<br/>
+    <input @keyup.enter="add" value="@keyup.enter">缩写:@keyup.enter<br/>
+    <hr/>
+    <h3>组合按钮</h3>
+    <!-- Alt + C -->
+    <input @keyup.alt.67="clear" value="Alt + C">
+    <!-- Ctrl + Click -->
+    <div @click.ctrl="doSomething">Ctrl + Click, Do something</div>
+</div>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            num: 1
+        },
+        methods: {
+            decrement() {
+                this.num--;
+            },
+            add() {
+                this.num++;
+            },
+            clear() {
+                console.log("你按下了 Alt + C");
+            }
+        }
+    });
+</script>
+</body>
+</html>

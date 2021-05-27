@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令：计算属性</title>
+</head>
+<body>
+    <div id="app">
+        <h1>您的生日是：{{
+                new Date(birthday).getFullYear() + '-'+ new Date(birthday).getMonth()+ '-' + new Date(birthday).getDay()
+            }}
+        </h1>
+        <br/>
+        <h3>您的生日是：{{birth}} </h3>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                birthday:1429032123201 // 毫秒值
+            },
+            computed: {
+                birth() { // 计算属性本质是一个方法，但是必须返回结果
+                    const d = new Date(this.birthday);
+                    return d.getFullYear() + "-" + d.getMonth() + "-" + d.getDay();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
